@@ -596,10 +596,7 @@ with tab_log:
         available_cols = [c for c in display_cols if c in df.columns]
 
         st.dataframe(
-            df[available_cols].style.map(
-                lambda v: "color: #00e676" if v == "win" else ("color: #ff5252" if v == "loss" else ""),
-                subset=["outcome"] if "outcome" in available_cols else [],
-            ),
+            df[available_cols],
             width="stretch",
             height=600,
         )
